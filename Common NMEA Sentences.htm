@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0047)http://www.satsleuth.com/GPS_NMEA_sentences.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!-- Copyright 2009 by Peter Johnson. All Rights Reserved. --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Common NMEA Sentences</title>
+<meta name="keywords" content="GPS tracking,AVL,vehicle location,covert GPS,surveillance,GPS surveillance">
+<meta name="description" content="Common NMEA Sentences - GPGGA, GPGLL, GPGSA, GPGSV, GPRMC, GPVTG">
+<link rel="stylesheet" href="./Common NMEA Sentences_files/satsleuth.css" type="text/css">
+<style type="text/css"></style><link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/js/page_context.js"></script><script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head>
+<body screen_capture_injected="true">
+<div>
+<img src="./Common NMEA Sentences_files/gps_tracking_banner.jpg" alt="GPS tracking system">
+</div>
+<table class="menu">
+<colgroup span="8" width="10%">
+   </colgroup>
+<tbody><tr>
+<td class="menu"><a href="http://www.satsleuth.com/home.htm">Home</a></td>
+<td class="menu"><a href="http://www.satsleuth.com/products.htm">Products</a></td>
+<td class="menu"><a href="http://www.satsleuth.com/schematics.htm">Circuits</a></td>
+<td class="menu"><a href="http://www.satsleuth.com/buy_gps_tracking.htm">How to buy</a></td>
+<td class="menu"><a href="http://www.satsleuth.com/gps_system_enquiry.htm">Contact us</a></td>
+<td class="menu"><a href="http://www.satsleuth.com/gps_technical_information.htm">Technical info</a></td>
+<td class="menu"><a href="http://www.satsleuth.com/gps_faq.htm">Help / FAQ</a></td>
+<td class="menu"><a href="http://www.satsleuth.com/gps_tracking_login.asp">Customer login</a></td>
+</tr>
+</tbody></table>
+<h2>Common NMEA Sentence types</h2>
+<p>The following information describes the most common NMEA-0183 sentences transmitted by GPS receivers.
+The NMEA standard provides quite a range of sentences, but many relate to non-GPS devices and
+some others are GPS related but rarely used. We normally recommend the use of NMEA mode for new GPS
+applications to give maximum compatibility with all GPS receivers. Most GPS receivers also have
+a binary mode but it is normally best to reserve the use of binary GPS protocols for applications that really require
+their use, such as those requiring position updates of greater than once per second.</p>
+<p>We also have a page that covers <a href="http://www.satsleuth.com/GPS_NMEA_sentences_other.htm">other NMEA sentences</a> that are also used
+by GPS receivers, although somewhat less commonly.</p>
+<table border="1">
+<tbody><tr><td><b>Sentence</b></td><td><b>Description</b></td></tr>
+<tr><td>$GPGGA</td><td>Global positioning system fixed data</td></tr>
+<tr><td>$GPGLL</td><td>Geographic position - latitude / longitude</td></tr>
+<tr><td>$GPGSA</td><td>GNSS DOP and active satellites</td></tr>
+<tr><td>$GPGSV</td><td>GNSS satellites in view</td></tr>
+<tr><td>$GPRMC</td><td>Recommended minimum specific GNSS data</td></tr>
+<tr><td>$GPVTG</td><td>Course over ground and ground speed</td></tr>
+</tbody></table>
+<h3>$GPGGA Sentence (Fix data)</h3>
+Example (signal not acquired): $GPGGA,235947.000,0000.0000,N,00000.0000,E,0,00,0.0,0.0,M,,,,0000*00<br>
+Example (signal acquired): $GPGGA,092204.999,4250.5589,S,14718.5084,E,1,04,24.4,19.7,M,,,,0000*1F<br><br>
+<table border="1">
+<tbody><tr><td><b>Field</b></td><td><b>Example</b></td><td><b>Comments</b></td></tr>
+<tr><td>Sentence ID</td><td>$GPGGA</td></tr>
+<tr><td>UTC Time</td><td>092204.999</td><td>hhmmss.sss</td></tr>
+<tr><td>Latitude</td><td>4250.5589</td><td>ddmm.mmmm</td></tr>
+<tr><td>N/S Indicator</td><td>S</td><td>N = North, S = South</td></tr>
+<tr><td>Longitude</td><td>14718.5084</td><td>dddmm.mmmm</td></tr>
+<tr><td>E/W Indicator</td><td>E</td><td>E = East, W = West</td></tr>
+<tr><td>Position Fix</td><td>1</td><td>0 = Invalid, 1 = Valid SPS, 2 = Valid DGPS, 3 = Valid PPS</td></tr>
+<tr><td>Satellites Used</td><td>04</td><td>Satellites being used (0-12)</td></tr>
+<tr><td>HDOP</td><td>24.4</td><td>Horizontal dilution of precision</td></tr>
+<tr><td>Altitude</td><td>19.7</td><td>Altitude in meters according to WGS-84 ellipsoid</td></tr>
+<tr><td>Altitude Units</td><td>M</td><td>M = Meters</td></tr>
+<tr><td>Geoid Seperation</td><td>&nbsp;</td><td>Geoid seperation in meters according to WGS-84 ellipsoid</td></tr>
+<tr><td>Seperation Units</td><td>&nbsp;</td><td>M = Meters</td></tr>
+<tr><td>DGPS Age</td><td>&nbsp;</td><td>Age of DGPS data in seconds</td></tr>
+<tr><td>DGPS Station ID</td><td>0000</td><td>&nbsp;</td></tr>
+<tr><td>Checksum</td><td>*1F</td><td>&nbsp;</td></tr>
+<tr><td>Terminator</td><td>CR/LF</td><td>&nbsp;</td></tr>
+</tbody></table>
+<h3>$GPGLL Sentence (Position)</h3>
+Example (signal not acquired): $GPGLL,0000.0000,N,00000.0000,E,235947.000,V*2D<br>
+Example (signal acquired): $GPGLL,4250.5589,S,14718.5084,E,092204.999,A*2D<br><br>
+<table border="1">
+<tbody><tr><td><b>Field</b></td><td><b>Example</b></td><td><b>Comments</b></td></tr>
+<tr><td>Sentence ID</td><td>$GPGLL</td></tr>
+<tr><td>Latitude</td><td>4250.5589</td><td>ddmm.mmmm</td></tr>
+<tr><td>N/S Indicator</td><td>S</td><td>N = North, S = South</td></tr>
+<tr><td>Longitude</td><td>14718.5084</td><td>dddmm.mmmm</td></tr>
+<tr><td>E/W Indicator</td><td>E</td><td>E = East, W = West</td></tr>
+<tr><td>UTC Time</td><td>092204.999</td><td>hhmmss.sss</td></tr>
+<tr><td>Status</td><td>A</td><td>A = Valid, V = Invalid</td></tr>
+<tr><td>Checksum</td><td>*2D</td><td>&nbsp;</td></tr>
+<tr><td>Terminator</td><td>CR/LF</td><td>&nbsp;</td></tr>
+</tbody></table>
+<h3>$GPGSA Sentence (Active satellites)</h3>
+Example (signal not acquired): $GPGSA,A,1,,,,,,,,,,,,,0.0,0.0,0.0*30<br>
+Example (signal acquired): $GPGSA,A,3,01,20,19,13,,,,,,,,,40.4,24.4,32.2*0A<br><br>
+<table border="1">
+<tbody><tr><td><b>Field</b></td><td><b>Example</b></td><td><b>Comments</b></td></tr>
+<tr><td>Sentence ID</td><td>$GPGSA</td><td>&nbsp;</td></tr>
+<tr><td>Mode 1</td><td>A</td><td>A = Auto 2D/3D, M = Forced 2D/3D</td></tr>
+<tr><td>Mode 1</td><td>3</td><td>1 = No fix, 2 = 2D, 3 = 3D</td></tr>
+<tr><td>Satellite used 1</td><td>01</td><td>Satellite used on channel 1</td></tr>
+<tr><td>Satellite used 2</td><td>20</td><td>Satellite used on channel 2</td></tr>
+<tr><td>Satellite used 3</td><td>19</td><td>Satellite used on channel 3</td></tr>
+<tr><td>Satellite used 4</td><td>13</td><td>Satellite used on channel 4</td></tr>
+<tr><td>Satellite used 5</td><td>&nbsp;</td><td>Satellite used on channel 5</td></tr>
+<tr><td>Satellite used 6</td><td>&nbsp;</td><td>Satellite used on channel 6</td></tr>
+<tr><td>Satellite used 7</td><td>&nbsp;</td><td>Satellite used on channel 7</td></tr>
+<tr><td>Satellite used 8</td><td>&nbsp;</td><td>Satellite used on channel 8</td></tr>
+<tr><td>Satellite used 9</td><td>&nbsp;</td><td>Satellite used on channel 9</td></tr>
+<tr><td>Satellite used 10</td><td>&nbsp;</td><td>Satellite used on channel 10</td></tr>
+<tr><td>Satellite used 11</td><td>&nbsp;</td><td>Satellite used on channel 11</td></tr>
+<tr><td>Satellite used 12</td><td>&nbsp;</td><td>Satellite used on channel 12</td></tr>
+<tr><td>PDOP</td><td>40.4</td><td>Position dilution of precision</td></tr>
+<tr><td>HDOP</td><td>24.4</td><td>Horizontal dilution of precision</td></tr>
+<tr><td>VDOP</td><td>32.2</td><td>Vertical dilution of precision</td></tr>
+<tr><td>Checksum</td><td>*0A</td><td>&nbsp;</td></tr>
+<tr><td>Terminator</td><td>CR/LF</td><td>&nbsp;</td></tr>
+</tbody></table>
+<h3>$GPGSV Sentence (Satellites in view)</h3>
+Example (signal not acquired): $GPGSV,1,1,01,21,00,000,*4B<br>
+Example (signal acquired): $GPGSV,3,1,10,20,78,331,45,01,59,235,47,22,41,069,,13,32,252,45*70<br><br>
+<table border="1">
+<tbody><tr><td><b>Field</b></td><td><b>Example</b></td><td><b>Comments</b></td></tr>
+<tr><td>Sentence ID</td><td>$GPGSV</td><td>&nbsp;</td></tr>
+<tr><td>Number of messages</td><td>3</td><td>Number of messages in complete message (1-3)</td></tr>
+<tr><td>Sequence number</td><td>1</td><td>Sequence number of this entry (1-3)</td></tr>
+<tr><td>Satellites in view</td><td>10</td><td>&nbsp;</td></tr>
+<tr><td>Satellite ID 1</td><td>20</td><td>Range is 1-32</td></tr>
+<tr><td>Elevation 1</td><td>78</td><td>Elevation in degrees (0-90)</td></tr>
+<tr><td>Azimuth 1</td><td>331</td><td>Azimuth in degrees (0-359)</td></tr>
+<tr><td>SNR 1</td><td>45</td><td>Signal to noise ration in dBHZ (0-99)</td></tr>
+<tr><td>Satellite ID 2</td><td>01</td><td>Range is 1-32</td></tr>
+<tr><td>Elevation 2</td><td>59</td><td>Elevation in degrees (0-90)</td></tr>
+<tr><td>Azimuth 2</td><td>235</td><td>Azimuth in degrees (0-359)</td></tr>
+<tr><td>SNR 2</td><td>47</td><td>Signal to noise ration in dBHZ (0-99)</td></tr>
+<tr><td>Satellite ID 3</td><td>22</td><td>Range is 1-32</td></tr>
+<tr><td>Elevation 3</td><td>41</td><td>Elevation in degrees (0-90)</td></tr>
+<tr><td>Azimuth 3</td><td>069</td><td>Azimuth in degrees (0-359)</td></tr>
+<tr><td>SNR 3</td><td>&nbsp;</td><td>Signal to noise ration in dBHZ (0-99)</td></tr>
+<tr><td>Satellite ID 4</td><td>13</td><td>Range is 1-32</td></tr>
+<tr><td>Elevation 4</td><td>32</td><td>Elevation in degrees (0-90)</td></tr>
+<tr><td>Azimuth 4</td><td>252</td><td>Azimuth in degrees (0-359)</td></tr>
+<tr><td>SNR 4</td><td>45</td><td>Signal to noise ration in dBHZ (0-99)</td></tr>
+<tr><td>Checksum</td><td>*70</td><td>&nbsp;</td></tr>
+<tr><td>Terminator</td><td>CR/LF</td><td>&nbsp;</td></tr>
+</tbody></table>
+<h3>$GPRMC Sentence (Position and time)</h3>
+Example (signal not acquired): $GPRMC,235947.000,V,0000.0000,N,00000.0000,E,,,041299,,*1D<br>
+Example (signal acquired): $GPRMC,092204.999,A,4250.5589,S,14718.5084,E,0.00,89.68,211200,,*25<br><br>
+<table border="1">
+<tbody><tr><td><b>Field</b></td><td><b>Example</b></td><td><b>Comments</b></td></tr>
+<tr><td>Sentence ID</td><td>$GPRMC</td><td>&nbsp;</td></tr>
+<tr><td>UTC Time</td><td>092204.999</td><td>hhmmss.sss</td></tr>
+<tr><td>Status</td><td>A</td><td>A = Valid, V = Invalid</td></tr>
+<tr><td>Latitude</td><td>4250.5589</td><td>ddmm.mmmm</td></tr>
+<tr><td>N/S Indicator</td><td>S</td><td>N = North, S = South</td></tr>
+<tr><td>Longitude</td><td>14718.5084</td><td>dddmm.mmmm</td></tr>
+<tr><td>E/W Indicator</td><td>E</td><td>E = East, W = West</td></tr>
+<tr><td>Speed over ground</td><td>0.00</td><td>Knots</td></tr>
+<tr><td>Course over ground</td><td>0.00</td><td>Degrees</td></tr>
+<tr><td>UTC Date</td><td>211200</td><td>DDMMYY</td></tr>
+<tr><td>Magnetic variation</td><td>&nbsp;</td><td>Degrees</td></tr>
+<tr><td>Magnetic variation</td><td>&nbsp;</td><td>E = East, W = West</td></tr>
+<tr><td>Checksum</td><td>*25</td><td>&nbsp;</td></tr>
+<tr><td>Terminator</td><td>CR/LF</td><td>&nbsp;</td></tr>
+</tbody></table>
+<h3>$GPVTG Sentence (Course over ground)</h3>
+Example (signal not acquired): $GPVTG,,T,,M,,N,,K*4E<br>
+Example (signal acquired): $GPVTG,89.68,T,,M,0.00,N,0.0,K*5F<br><br>
+<table border="1">
+<tbody><tr><td><b>Field</b></td><td><b>Example</b></td><td><b>Comments</b></td></tr>
+<tr><td>Sentence ID</td><td>$GPVTG</td><td>&nbsp;</td></tr>
+<tr><td>Course</td><td>89.68</td><td>Course in degrees</td></tr>
+<tr><td>Reference</td><td>89.68</td><td>T = True heading</td></tr>
+<tr><td>Course</td><td>&nbsp;</td><td>Course in degrees</td></tr>
+<tr><td>Reference</td><td>89.68</td><td>M = Magnetic heading</td></tr>
+<tr><td>Speed</td><td>0.00</td><td>Horizontal speed</td></tr>
+<tr><td>Units</td><td>N</td><td>N = Knots</td></tr>
+<tr><td>Speed</td><td>0.00</td><td>Horizontal speed</td></tr>
+<tr><td>Units</td><td>K</td><td>K = KM/h</td></tr>
+<tr><td>Checksum</td><td>*5F</td><td>&nbsp;</td></tr>
+<tr><td>Terminator</td><td>CR/LF</td><td>&nbsp;</td></tr>
+</tbody></table>
+
+
+</body></html>
